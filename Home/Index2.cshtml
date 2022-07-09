@@ -1,0 +1,55 @@
+﻿@model IEnumerable<AwpDemo.Models.Articles>
+
+@{
+    ViewBag.Title = "Admin Home Page";
+}
+<img src="~/image/logo.jpeg" style="float:right" width="100" height="100">
+
+<h2>Admin Home Page</h2>
+<h3>@Html.ActionLink("Logout", "Logout", "Home")</h3>
+<h4>
+    <ul>
+
+        <li> @Html.ActionLink("Create New Article", "Create")</li>
+
+        <li>
+            @Html.ActionLink("Medical question List", "Index2", "Ask")
+        </li>
+        <li>   @Html.ActionLink("Go To New Question List", "Waitting", "Ask")</li>
+
+    </ul>
+</h4>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Visitor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArticleAdress)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        using (Html.BeginForm("Delete", "Home", new { id = item.Id }))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Visitor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArticleAdress)
+                </td>
+
+                <td>
+
+                    <input type="submit" value="Delele" class="btn btn-default"
+                           onclick='return confirm("Attention you will delete the article @item.ArticleAdress ");' />||@Html.ActionLink("Read Article", "Details", new { id = item.Id })||@Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+        }
+</table>
+<div> <h3>online user :  @ViewBag.onlineusers </h3> </div>

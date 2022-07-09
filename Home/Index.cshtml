@@ -1,0 +1,48 @@
+﻿@model IEnumerable<AwpDemo.Models.Articles>
+
+@{
+    ViewBag.Title = "Index";
+}
+<img src="~/image/logo.jpeg" style="float:right" width="100" height="100">
+<h2>
+    @Html.ActionLink("Login", "Login", "Login")||
+    @Html.ActionLink("Sing up", "Register", "Register")
+</h2>
+
+<h4>Medical Articles</h4>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Visitor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArticleAdress)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <h4>  <b>  @Html.DisplayFor(modelItem => item.Visitor) </b></h4>
+            </td>
+            <td>
+                <h4>   <b>   @Html.DisplayFor(modelItem => item.ArticleAdress) </b></h4>
+            </td>
+
+            <td>
+
+                <h4>   <b>  @Html.ActionLink("Read Article", "Details", new { id = item.Id })</b></h4>
+
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div><h3>online user :  @ViewBag.onlineusers </h3> </div>
+

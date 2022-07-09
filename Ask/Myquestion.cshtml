@@ -1,0 +1,29 @@
+﻿@model IEnumerable<AwpDemo.Models.Asks>
+
+@{
+    ViewBag.Title = "Myquestion";
+}
+<img src="~/image/logo.jpeg" style="float:right" width="100" height="100">
+
+<h2>Myquestion</h2>
+
+@foreach (var item in Model)
+{
+<pre>
+<b> @Html.DisplayNameFor(model => model.Question):</b>   @Html.DisplayFor(modelItem => item.UserName) :  @Html.DisplayFor(modelItem => item.Question)
+</pre>
+<pre>
+<b> Answar:</b> @Html.DisplayFor(modelItem => item.Answer)
+</pre>
+    <br />
+
+
+}
+<br />
+<br />
+<div>
+    @Html.ActionLink("Ask Medical Question ", "AsqUser") || @Html.ActionLink("Back To Home Page ", "Index1", "Home")
+</div>
+<div>
+    <h3> online user :</h3>@ViewBag.onlineusers
+</div>

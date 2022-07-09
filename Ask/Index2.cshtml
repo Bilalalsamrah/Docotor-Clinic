@@ -1,0 +1,34 @@
+﻿@model IEnumerable<AwpDemo.Models.Asks>
+
+@{
+    ViewBag.Title = "Index";
+}
+<img src="~/image/logo.jpeg" style="float:right" width="100" height="100">
+
+<h2>question List Admin Page</h2>
+<br />
+@Html.ActionLink("Go To New Question List", "Waitting")
+
+
+
+
+
+
+
+
+
+@foreach (var item in Model)
+{
+<pre>
+<b> @Html.DisplayNameFor(model => model.Question):</b> <b> @Html.DisplayFor(modelItem => item.UserName) :</b>  @Html.DisplayFor(modelItem => item.Question)
+</pre>
+<pre>
+<b>  @Html.ActionLink("write Answar ", "Answar",new {id=item.Id }):</b> @Html.DisplayFor(modelItem => item.Answer)
+</pre>
+    <br />
+
+
+}
+@Html.ActionLink("Back to Home page", "Index2", "Home")
+
+online user :@ViewBag.onlineusers 
